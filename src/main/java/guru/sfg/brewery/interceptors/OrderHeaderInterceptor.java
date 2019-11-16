@@ -44,9 +44,10 @@ public class OrderHeaderInterceptor extends EmptyInterceptor {
     @Override
     public boolean onFlushDirty(Object entity, Serializable id, Object[] currentState, Object[] previousState, String[] propertyNames, Type[] types) {
 
-        if (entity instanceof BeerOrder){
-            for(Object curObj : currentState){
-                if(curObj instanceof OrderStatusEnum){
+        if (entity instanceof BeerOrder) {
+            for(Object curObj : currentState) {
+
+                if(curObj instanceof OrderStatusEnum) {
                     for (Object prevObj : previousState){
                         if (prevObj instanceof OrderStatusEnum) {
                             OrderStatusEnum curStatus = (OrderStatusEnum) curObj;
@@ -59,7 +60,9 @@ public class OrderHeaderInterceptor extends EmptyInterceptor {
                             }
                         }
                     }
+
                 }
+
             }
         }
 
